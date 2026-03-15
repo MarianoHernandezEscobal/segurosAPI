@@ -1,24 +1,31 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Put, Param, UseGuards } from '@nestjs/common';
 import { InsuranceService } from './insurance.service';
-
+import { InsuranceDTO } from './dto/insurance.dto';
+import { AuthorizationGuard } from '../guards/authorization.guard';
 @Controller('seguros')
-export class SegurosController {
+export class InsuranceController {
 
-  constructor(private insuranceService: InsuranceService) {}
+  constructor(private insuranceService: InsuranceService) { }
 
   @Post()
-  create(@Body() body: any) {
+  @UseGuards(AuthorizationGuard)
+  create(@Body() body: InsuranceDTO) {
     return this.insuranceService.create(body);
   }
 
   @Get()
+  @UseGuards(AuthorizationGuard)
   findAll() {
     return this.insuranceService.findAll();
   }
-
-  @Post('test-whatsapp')
-  sendTest(@Body() body: { phone: string }) {
-    return this.insuranceService.sendTest(body.phone);
+  
+  @Put(':id')
+  @UseGuards(AuthorizationGuard)
+  update(
+    @Param('id') id: string,
+    @Body() body: Partial<InsuranceDTO>
+  ) {
+    return this.insuranceService.update(id, body);
   }
 
 }

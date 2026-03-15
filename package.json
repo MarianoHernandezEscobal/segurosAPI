@@ -23,14 +23,18 @@
     "@nestjs/common": "^11.0.1",
     "@nestjs/config": "^4.0.3",
     "@nestjs/core": "^11.0.1",
+    "@nestjs/jwt": "^11.0.2",
     "@nestjs/mongoose": "^11.0.4",
     "@nestjs/platform-express": "^11.0.1",
     "@nestjs/schedule": "^6.1.1",
     "@whiskeysockets/baileys": "^7.0.0-rc.9",
+    "bcrypt": "^6.0.0",
+    "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.2.4",
     "qrcode-terminal": "^0.12.0",
     "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "whatsapp-web.js": "^1.34.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",

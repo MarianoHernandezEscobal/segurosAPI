@@ -12,7 +12,12 @@ export class Insurance {
   @Prop()
   phone: string;
 
-  @Prop()
+  @Prop({
+    required: true,
+    unique: true,
+    uppercase: true,
+    trim: true
+  })
   tuition: string;
 
   @Prop()
@@ -21,6 +26,8 @@ export class Insurance {
   @Prop()
   expirationDate: Date;
 
+  @Prop({ default: false })
+  reminderSent: boolean;
 }
 
 export const InsuranceSchema = SchemaFactory.createForClass(Insurance);
